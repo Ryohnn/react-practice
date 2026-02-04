@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\Api\TestController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Repositories\IRepository;
 use App\Http\Repositories\TestRepository;
 use App\Http\Repositories\UserRepository;
@@ -30,10 +30,9 @@ class AppServiceProvider extends ServiceProvider
                 return app(UserRepository::class);
             });
 
-        $this->app->bind(TestController::class, function ($app) {
-            return new TestController(
+        $this->app->bind(UserController::class, function ($app) {
+            return new UserController(
                 $app->make(UserService::class),
-                $app->make(TestService::class)
             );
         });
     }
