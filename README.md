@@ -1,7 +1,14 @@
-Docker setup for Laravel projects
+# React practice project
 
-Contains:
+## Tech stack
 - PostgreSQL
 - Redis
+- React
 - Bun JS with hot reloading for Vite
 - XDebug - Disabled for now
+
+## Setup
+
+1. Run `docker compose up --build` to build the image and start the container
+2. Run `docker exec -it php_app bun run dev` to build and run the frontend
+3. Visit [Localhost](http://localhost)
