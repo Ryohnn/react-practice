@@ -10,7 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, ticTacToe, users } from '@/routes';
+import { dashboard, tictactoe, users } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
@@ -25,6 +25,11 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Users',
         href: users(),
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Tic Tac Toe',
+        href: tictactoe(),
         icon: LayoutGrid,
     },
 ];
