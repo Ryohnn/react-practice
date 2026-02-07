@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\UserController;
 use App\Http\Repositories\IRepository;
 use App\Http\Repositories\TestRepository;
 use App\Http\Repositories\UserRepository;
