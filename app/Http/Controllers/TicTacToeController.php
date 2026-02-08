@@ -8,6 +8,6 @@ class TicTacToeController extends Controller
 {
     public function index()
     {
-        return Inertia::render('ticTacToe', []);
+        return Inertia::render('tic-tac-toe', []);
     }
 }

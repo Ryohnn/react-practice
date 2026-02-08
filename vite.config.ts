@@ -10,7 +10,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.tsx',
-                'resources/css/tictactoe.scss',
+                'resources/css/tic-tac-toe.scss',
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
