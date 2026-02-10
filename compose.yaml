@@ -1,17 +1,24 @@
 services:
   app:
+    container_name: frankenphp_app
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        USER_ID: ${USER_ID:-1000}
-        GROUP_ID: ${GROUP_ID:-1000}
-      tags:
-        - php_app:latest
-    image: php_app:latest
-    container_name: php_app
-    restart: unless-stopped
-    working_dir: /var/www/html
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+      - "5173:5173"
+    volumes:
+      - ./:/app/public
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+       - postgres
+       - redis
+    networks:
+      - laravel_network
+    tty: true
     environment:
       - PHP_IDE_CONFIG=serverName=localhost
       - DB_HOST=${DB_HOST}
@@ -25,16 +32,6 @@ services:
       - MAIL_HOST=mailpit
       - MAIL_PORT=1025
       - MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS:-hello@example.com}
-    volumes:
-      - .:/var/www/html
-    depends_on:
-     - postgres
-     - redis
-    networks:
-      - laravel_network
-    ports:
-      - "80:8080"
-      - "5173:5173"
 
   postgres:
     image: postgres:alpine
@@ -48,14 +45,6 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
-    networks:
-      - laravel_network
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - "8080:8080"
     networks:
       - laravel_network
 
@@ -88,3 +77,5 @@ networks:
 volumes:
   postgres_data:
   redis_data:
+  caddy_data:
+  caddy_config:
