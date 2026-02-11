@@ -7,34 +7,50 @@ $square-border-radius: 0.8rem;
         .board-row {
             display: flex;  // Add this
 
-            &:first-child {
-                & .square:first-child {
-                    border-radius: $square-border-radius 0 0 0;
+            .square {
+                background: lightgrey;
+                border: 1px solid grey;
+                padding: 1rem;
+                width: 60px;
+                height: 60px;
+                font-weight: bolder;
+
+                &:first-child {
+                    border-left: 2px solid grey;
                 }
 
-                & .square:last-child {
-                    border-radius: 0 $square-border-radius 0 0;
+                &:last-child {
+                    border-right: 2px solid grey;
+                }
+            }
+
+            &:first-child {
+                .square {
+                    border-top: 2px solid grey;
+
+                    &:first-child {
+                        border-radius: $square-border-radius 0 0 0;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 $square-border-radius 0 0;
+                    }
                 }
             }
 
             &:last-child {
-                & .square:first-child {
-                    border-radius: 0 0 0 $square-border-radius;
-                }
+                .square {
+                    border-bottom: 2px solid grey;
 
-                & .square:last-child {
-                    border-radius: 0 0 $square-border-radius 0;
+                    &:first-child {
+                        border-radius: 0 0 0 $square-border-radius;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 0 $square-border-radius 0;
+                    }
                 }
             }
-        }
-
-        .square {
-            background: lightgrey;
-            border: 1px solid black;
-            padding: 1rem;
-            width: 60px;
-            height: 60px;
-            font-weight: bolder;
         }
     }
 }
