@@ -1,13 +1,17 @@
 import { memo } from 'react';
+import { type SquareData } from '@/types';
 
 const Square = memo(
-    function Square({value, onSquareClick}: { value: string | null; onSquareClick: () => void}) {
+    function Square(
+        {square, onSquareClick}:
+        { square: SquareData, onSquareClick: () => void }
+    ) {
         return (
             <button
-                className="square"
+                className={square.classes.join(', ')}
                 onClick={onSquareClick}
             >
-                {value}
+                {square.value}
             </button>
         );
     }
