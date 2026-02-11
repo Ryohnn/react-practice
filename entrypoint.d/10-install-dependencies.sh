@@ -6,6 +6,8 @@ whoami
 id -u
 id -g
 
+git config --global --add safe.directory /app/public
+
 echo "Installing/updating Composer packages..."
 composer install
 
