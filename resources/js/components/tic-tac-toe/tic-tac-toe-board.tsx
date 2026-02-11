@@ -55,8 +55,17 @@ export default function TicTacToeBoard()
         setSquares(nextSquares);
     }
 
+    function resetGame() {
+        setIsPlayerX(true);
+        setSquares(createSquares);
+    }
+
     return (
         <div className="tic-tac-toe board">
+            <button
+                className='reset-button'
+                onClick={resetGame}
+            >Reset Game</button>
             <div className={`status`}>
                 <p>{statusMessage}<span className={statusClass}>{currentPlayer}</span></p>
             </div>

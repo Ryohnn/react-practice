@@ -16,6 +16,13 @@ $player-o-colour: #a0c4ff;
             color: $player-o-colour;
         }
 
+        .reset-button {
+            background: #fcf6bd;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border-radius: 0.4rem;
+        }
+
         .status {
             display: flex;
             color: white;
