@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/react';
 import { BreadcrumbItem } from '@/types';
 import { tictactoe } from '@/routes';
 import TicTacToeGame from '@/components/tic-tac-toe/tic-tac-toe-game';
-import "../../css/tic-tac-toe.scss"
+import "css/tic-tac-toe.scss"
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
