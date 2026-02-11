@@ -1,5 +1,40 @@
+$square-border-radius: 0.8rem;
+
 .tic-tac-toe {
-    &.board {
-        color: red;
+    .board {
+        color: black;
+
+        .board-row {
+            display: flex;  // Add this
+
+            &:first-child {
+                & .square:first-child {
+                    border-radius: $square-border-radius 0 0 0;
+                }
+
+                & .square:last-child {
+                    border-radius: 0 $square-border-radius 0 0;
+                }
+            }
+
+            &:last-child {
+                & .square:first-child {
+                    border-radius: 0 0 0 $square-border-radius;
+                }
+
+                & .square:last-child {
+                    border-radius: 0 0 $square-border-radius 0;
+                }
+            }
+        }
+
+        .square {
+            background: lightgrey;
+            border: 1px solid black;
+            padding: 1rem;
+            width: 60px;
+            height: 60px;
+            font-weight: bolder;
+        }
     }
 }
