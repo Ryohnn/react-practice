@@ -8,7 +8,7 @@ const Square = memo(
     ) {
         return (
             <button
-                className={square.classes.join(', ')}
+                className={square.classes.join(' ')}
                 onClick={onSquareClick}
             >
                 {square.value}

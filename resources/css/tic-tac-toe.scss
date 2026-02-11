@@ -1,17 +1,26 @@
 $square-border-radius: 0.8rem;
 $board-square-colour: #F5EBE0;
 $board-border-colour: #DED6CE;
-$player-x-colour: #ffadad;
+$player-x-colour: #fb6f92;
 $player-o-colour: #a0c4ff;
 
 .tic-tac-toe {
     .board {
         color: black;
 
+        & .playerX {
+            color: $player-x-colour;
+        }
+
+        & .playerO {
+            color: $player-o-colour;
+        }
+
         .status {
             display: flex;
             color: white;
             margin-bottom: 1rem;
+            font-weight: bold;
         }
 
         .board-rows {
@@ -25,6 +34,10 @@ $player-o-colour: #a0c4ff;
                     width: 60px;
                     height: 60px;
                     font-weight: bolder;
+                    font-size: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
                     &:first-child {
                         border-left: 2px solid $board-border-colour;
