@@ -1,29 +1,24 @@
 import Square from '@/components/tic-tac-toe/square';
-import { useState } from 'react';
 import { type SquareData } from '@/types';
 
-export default function TicTacToeBoard()
-{
-    const [isPlayerX, setIsPlayerX] = useState(true);
-    const [squares, setSquares] = useState<SquareData[]>(createSquares);
+interface TicTacToeBoardProps {
+    xIsNext: boolean;
+    squares: SquareData[];
+    onPlay: (squares: SquareData[]) => void;
+}
+
+export default function TicTacToeBoard({ xIsNext, squares, onPlay }: TicTacToeBoardProps) {
     const winner = calculateWinner(squares);
 
     let currentPlayer, statusMessage, statusClass;
     if (winner) {
         statusMessage = 'Winner: ';
-        statusClass = !isPlayerX ? 'playerX' : 'playerO';
-        currentPlayer = !isPlayerX ? 'X' : 'O';
+        statusClass = !xIsNext ? 'playerX' : 'playerO';
+        currentPlayer = !xIsNext ? 'X' : 'O';
     } else {
         statusMessage = 'Next player: ';
-        statusClass = isPlayerX ? 'playerX' : 'playerO';
-        currentPlayer = isPlayerX ? 'X' : 'O';
-    }
-
-    function createSquares(): SquareData[] {
-        return Array.from({ length: 9 }, () => ({
-            value: '',
-            classes: ['square'],
-        }));
+        statusClass = xIsNext ? 'playerX' : 'playerO';
+        currentPlayer = xIsNext ? 'X' : 'O';
     }
 
     /**
@@ -43,29 +38,19 @@ export default function TicTacToeBoard()
             if (index === i) {
                 newSquare = {
                     ...square,
-                    value: isPlayerX ? 'X' : 'O',
-                    classes: [...square.classes, isPlayerX ? 'playerX' : 'playerO'],
+                    value: xIsNext ? 'X' : 'O',
+                    classes: [...square.classes, xIsNext ? 'playerX' : 'playerO'],
                 };
             }
 
             return newSquare;
         });
 
-        setIsPlayerX(!isPlayerX);
-        setSquares(nextSquares);
-    }
-
-    function resetGame() {
-        setIsPlayerX(true);
-        setSquares(createSquares);
+        onPlay(nextSquares);
     }
 
     return (
         <div className="tic-tac-toe board">
-            <button
-                className='reset-button'
-                onClick={resetGame}
-            >Reset Game</button>
             <div className={`status`}>
                 <p>{statusMessage}<span className={statusClass}>{currentPlayer}</span></p>
             </div>
