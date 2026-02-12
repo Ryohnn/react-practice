@@ -4,9 +4,10 @@ import type { SquareData } from '@/types';
 
 export default function TicTacToeGame()
 {
-    const [xIsNext, setXIsNext] = useState(true);
     const [history, setHistory] = useState<SquareData[][]>([createSquares()]);
-    const currentSquares = history[history.length - 1];
+    const [currentMove, setCurrentMove] = useState(0);
+    const currentSquares = history[currentMove];
+    const xIsNext = currentMove % 2 === 0;
 
     function createSquares(): SquareData[] {
         return Array.from({ length: 9 }, () => ({
@@ -17,18 +18,25 @@ export default function TicTacToeGame()
 
     function handlePlay(nextSquares: SquareData[])
     {
-        setHistory([...history, nextSquares]);
-        setXIsNext(!xIsNext);
+        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+        setHistory(nextHistory);
+        setCurrentMove(nextHistory.length - 1);
     }
 
     function toHistory(index: number)
     {
+        setCurrentMove(index);
     }
 
     const moveHistory = history.map((squares, index) => {
         return (
             <li key={index}>
-                <button onClick={() => toHistory(index)}>{index}</button>
+                <button
+                    className="btn"
+                    onClick={() => toHistory(index)}
+                >
+                    Go to move: {index}
+                </button>
             </li>
         );
     });
@@ -42,7 +50,9 @@ export default function TicTacToeGame()
                     onPlay={handlePlay}
                 />
                 <div className="game-info">
-                    <ol>{moveHistory}</ol>
+                    <ol>
+                        {moveHistory}
+                    </ol>
                 </div>
             </div>
         </>

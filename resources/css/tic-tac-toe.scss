@@ -5,6 +5,24 @@ $player-x-colour: #fb6f92;
 $player-o-colour: #a0c4ff;
 
 .tic-tac-toe {
+    .btn {
+        background: $board-square-colour;
+        padding: 0.5rem 1rem;
+        border: 1px solid $board-border-colour;
+        border-radius: 0.5rem;
+        color: black;
+
+        &.playerX {
+            color: $player-x-colour;
+        }
+
+        &.playerO {
+            color: $player-o-colour;
+        }
+
+        margin-bottom: 0.5rem;
+    }
+
     .board {
         color: black;
 
