@@ -5,10 +5,18 @@ $player-x-colour: #fb6f92;
 $player-o-colour: #a0c4ff;
 
 .tic-tac-toe {
+    .game-info {
+        margin-left: 1rem;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
     .btn {
         background: $board-square-colour;
         padding: 0.5rem 1rem;
-        border: 1px solid $board-border-colour;
+        border: 4px solid $board-border-colour;
         border-radius: 0.5rem;
         color: black;
 
@@ -55,7 +63,7 @@ $player-o-colour: #a0c4ff;
 
                 .square {
                     background: $board-square-colour;
-                    border: 1px solid $board-border-colour;
+                    border: 2px solid $board-border-colour;
                     padding: 1rem;
                     width: 60px;
                     height: 60px;

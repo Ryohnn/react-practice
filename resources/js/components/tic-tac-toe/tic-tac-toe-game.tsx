@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TicTacToeBoard from '@/components/tic-tac-toe/tic-tac-toe-board';
 import type { SquareData } from '@/types';
+import MoveHistory from '@/components/tic-tac-toe/move-history';
 
 export default function TicTacToeGame()
 {
@@ -23,23 +24,10 @@ export default function TicTacToeGame()
         setCurrentMove(nextHistory.length - 1);
     }
 
-    function toHistory(index: number)
+    function toHistory(toMove: number)
     {
-        setCurrentMove(index);
+        setCurrentMove(toMove);
     }
-
-    const moveHistory = history.map((squares, index) => {
-        return (
-            <li key={index}>
-                <button
-                    className="btn"
-                    onClick={() => toHistory(index)}
-                >
-                    Go to move: {index}
-                </button>
-            </li>
-        );
-    });
 
     return (
         <>
@@ -50,9 +38,10 @@ export default function TicTacToeGame()
                     onPlay={handlePlay}
                 />
                 <div className="game-info">
-                    <ol>
-                        {moveHistory}
-                    </ol>
+                    <MoveHistory
+                        currentMove={currentMove}
+                        clickHandler={toHistory}
+                    />
                 </div>
             </div>
         </>
