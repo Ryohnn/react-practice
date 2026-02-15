@@ -1,5 +1,5 @@
-import Square from '@/components/tic-tac-toe/square';
-import { type SquareData } from '@/types';
+import Square from 'tic-tac-toe/square';
+import { type SquareData } from 'tic-tac-toe/square';
 
 interface TicTacToeBoardProps {
     xIsNext: boolean;

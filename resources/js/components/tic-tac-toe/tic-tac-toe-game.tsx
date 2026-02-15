@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import TicTacToeBoard from '@/components/tic-tac-toe/tic-tac-toe-board';
-import type { SquareData } from '@/types';
-import MoveHistory from '@/components/tic-tac-toe/move-history';
+import MoveHistory from 'tic-tac-toe/move-history';
+import TicTacToeBoard from 'tic-tac-toe/tic-tac-toe-board';
+import { type SquareData } from 'tic-tac-toe/square';
 
 export default function TicTacToeGame()
 {

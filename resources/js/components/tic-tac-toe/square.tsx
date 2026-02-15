@@ -1,5 +1,10 @@
 import { memo } from 'react';
-import { type SquareData } from '@/types';
+
+interface SquareData {
+    value: string;
+    classes: Array<string>;
+}
+
 
 const Square = memo(
     function Square(
@@ -16,5 +21,7 @@ const Square = memo(
         );
     }
 );
+
+export type { SquareData };
 
 export default Square;

@@ -42,6 +42,7 @@ export default defineConfig({
     resolve: {
         alias: {
             'css': path.resolve(__dirname, 'resources/css'),
+            'tic-tac-toe': path.resolve(__dirname, 'resources/js/components/tic-tac-toe'),
         }
     }
 });
