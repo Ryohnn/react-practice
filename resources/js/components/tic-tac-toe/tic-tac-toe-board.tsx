@@ -1,5 +1,6 @@
 import Square from 'tic-tac-toe/square';
 import { type SquareData } from 'tic-tac-toe/square';
+import { JSX } from 'react';
 
 interface TicTacToeBoardProps {
     xIsNext: boolean;
@@ -49,54 +50,43 @@ export default function TicTacToeBoard({ xIsNext, squares, onPlay }: TicTacToeBo
         onPlay(nextSquares);
     }
 
+    function createSquareComponent(index: number)
+    {
+        return (
+            <Square
+                key={`square-${index}`}
+                square={squares[index]}
+                onSquareClick={() => handleClick(index)}
+            />
+        );
+    }
+
+    function createBoardRowComponent(key: number, squareComponents: JSX.Element[])
+    {
+        return (<div key={`row-${key}`} className="board-row">
+            {squareComponents}
+        </div>);
+    }
+
+    function renderSquares()
+    {
+        const squareComponents = squares.map((square, index) => createSquareComponent(index));
+        const rows = [
+            createBoardRowComponent(0, squareComponents.slice(0, 3)),
+            createBoardRowComponent(1, squareComponents.slice(3, 6)),
+            createBoardRowComponent(2, squareComponents.slice(6, 9)),
+        ];
+
+        return (<>{rows}</>);
+    }
+
     return (
         <div className="tic-tac-toe board">
             <div className={`status`}>
                 <p>{statusMessage}<span className={statusClass}>{currentPlayer}</span></p>
             </div>
             <div className="board-rows">
-                <div className="board-row">
-                    <Square
-                        square={squares[0]}
-                        onSquareClick={() => handleClick(0)}
-                    />
-                    <Square
-                        square={squares[1]}
-                        onSquareClick={() => handleClick(1)}
-                    />
-                    <Square
-                        square={squares[2]}
-                        onSquareClick={() => handleClick(2)}
-                    />
-                </div>
-                <div className="board-row">
-                    <Square
-                        square={squares[3]}
-                        onSquareClick={() => handleClick(3)}
-                    />
-                    <Square
-                        square={squares[4]}
-                        onSquareClick={() => handleClick(4)}
-                    />
-                    <Square
-                        square={squares[5]}
-                        onSquareClick={() => handleClick(5)}
-                    />
-                </div>
-                <div className="board-row">
-                    <Square
-                        square={squares[6]}
-                        onSquareClick={() => handleClick(6)}
-                    />
-                    <Square
-                        square={squares[7]}
-                        onSquareClick={() => handleClick(7)}
-                    />
-                    <Square
-                        square={squares[8]}
-                        onSquareClick={() => handleClick(8)}
-                    />
-                </div>
+                {renderSquares()}
             </div>
         </div>
     );
