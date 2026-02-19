@@ -1,4 +1,4 @@
-import Move from '@/components/tic-tac-toe/move';
+import Move from 'naughts-and-crosses/move';
 
 function MoveHistory({currentMove, clickHandler}: {currentMove: number; clickHandler: (toMove: number) => void})
 {

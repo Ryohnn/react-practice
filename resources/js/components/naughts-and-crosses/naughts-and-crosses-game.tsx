@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import MoveHistory from 'tic-tac-toe/move-history';
-import TicTacToeBoard from 'tic-tac-toe/tic-tac-toe-board';
-import { type SquareData } from 'tic-tac-toe/square';
+import MoveHistory from 'naughts-and-crosses/move-history';
+import NaughtsAndCrossesBoard from 'naughts-and-crosses/naughts-and-crosses-board';
+import { type SquareData } from 'naughts-and-crosses/square';
 
-export default function TicTacToeGame()
+export default function NaughtsAndCrossesGame()
 {
     const [history, setHistory] = useState<SquareData[][]>([createSquares()]);
     const [currentMove, setCurrentMove] = useState(0);
@@ -31,8 +31,8 @@ export default function TicTacToeGame()
 
     return (
         <>
-            <div className="tic-tac-toe m-4 flex h-full flex-1 gap-4 overflow-x-auto rounded-sm bg-neutral-800 p-4">
-                <TicTacToeBoard
+            <div className="naughts-and-crosses m-4 flex h-full flex-1 gap-4 overflow-x-auto rounded-sm bg-neutral-800 p-4">
+                <NaughtsAndCrossesBoard
                     xIsNext={xIsNext}
                     squares={currentSquares}
                     onPlay={handlePlay}

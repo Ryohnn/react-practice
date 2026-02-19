@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\TicTacToeController;
+use App\Http\Controllers\NaughtsAndCrossesController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,7 +21,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('users', [UserController::class, 'users'])
     ->name('users');
 
-Route::get('tictactoe', [TicTacToeController::class, 'index'])
-    ->name('tictactoe');
+Route::get('naughtsandcrosses', [NaughtsAndCrossesController::class, 'index'])
+    ->name('naughtsandcrosses');
 
 require __DIR__.'/settings.php';

@@ -1,14 +1,14 @@
-import Square from 'tic-tac-toe/square';
-import { type SquareData } from 'tic-tac-toe/square';
+import Square from 'naughts-and-crosses/square';
+import { type SquareData } from 'naughts-and-crosses/square';
 import { JSX } from 'react';
 
-interface TicTacToeBoardProps {
+interface BoardProps {
     xIsNext: boolean;
     squares: SquareData[];
     onPlay: (squares: SquareData[]) => void;
 }
 
-export default function TicTacToeBoard({ xIsNext, squares, onPlay }: TicTacToeBoardProps) {
+export default function NaughtsAndCrossesBoard({ xIsNext, squares, onPlay }: BoardProps) {
     const winner = calculateWinner(squares);
 
     let currentPlayer, statusMessage, statusClass;
@@ -81,7 +81,7 @@ export default function TicTacToeBoard({ xIsNext, squares, onPlay }: TicTacToeBo
     }
 
     return (
-        <div className="tic-tac-toe board">
+        <div className="naughts-and-crosses board">
             <div className={`status`}>
                 <p>{statusMessage}<span className={statusClass}>{currentPlayer}</span></p>
             </div>

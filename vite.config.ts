@@ -11,7 +11,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.tsx',
-                'resources/css/tic-tac-toe.scss',
+                'resources/css/naughts-and-crosses.scss',
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
@@ -34,15 +34,15 @@ export default defineConfig({
         },
         watch: {
             usePolling: true,
-        }
+        },
     },
     esbuild: {
         jsx: 'automatic',
     },
     resolve: {
         alias: {
-            'css': path.resolve(__dirname, 'resources/css'),
-            'tic-tac-toe': path.resolve(__dirname, 'resources/js/components/tic-tac-toe'),
-        }
-    }
+            css: path.resolve(__dirname, 'resources/css'),
+            'naughts-and-crosses': path.resolve(__dirname, 'resources/js/components/naughts-and-crosses'),
+        },
+    },
 });

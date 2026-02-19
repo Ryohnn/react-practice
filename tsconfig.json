@@ -110,7 +110,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./resources/js/*"],
-            "tic-tac-toe/*": ["./resources/js/components/tic-tac-toe/*"],
+            "naughts-and-crosses/*": ["./resources/js/components/naughts-and-crosses/*"],
             "css/*": ["./resources/css/*"],
         },
         "jsx": "react-jsx"
