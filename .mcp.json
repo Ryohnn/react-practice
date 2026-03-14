@@ -1,16 +1,8 @@
 {
     "mcpServers": {
         "laravel-boost": {
-            "command": "docker",
-            "args": [
-                "compose",
-                "exec",
-                "-T",
-                "app",
-                "php",
-                "artisan",
-                "boost:mcp"
-            ]
+            "command": "./vendor/bin/sail",
+            "args": ["artisan", "boost:mcp"]
         }
     }
 }

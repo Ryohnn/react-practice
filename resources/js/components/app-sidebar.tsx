@@ -10,7 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, naughtsandcrosses, users } from '@/routes';
+import { dashboard, modals, naughtsandcrosses, users } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
@@ -32,6 +32,11 @@ const mainNavItems: NavItem[] = [
         href: naughtsandcrosses(),
         icon: LayoutGrid,
     },
+    {
+        title: 'Modals',
+        href: modals(),
+        icon: LayoutGrid,
+    }
 ];
 
 const footerNavItems: NavItem[] = [
