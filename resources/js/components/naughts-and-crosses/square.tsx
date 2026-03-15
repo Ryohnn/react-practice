@@ -5,7 +5,6 @@ interface SquareData {
     classes: Array<string>;
 }
 
-
 const Square = memo(
     function Square(
         {square, onSquareClick}:

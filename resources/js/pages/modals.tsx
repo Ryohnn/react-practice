@@ -3,6 +3,7 @@ import { BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import 'css/naughts-and-crosses.scss';
 import { modals } from '@/routes';
+import ModalWrapper from '@/components/modals/modal-wrapper';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -15,6 +16,7 @@ export default function Modals() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Modals" />
+            <ModalWrapper title="test"/>
         </AppLayout>
     );
 }
