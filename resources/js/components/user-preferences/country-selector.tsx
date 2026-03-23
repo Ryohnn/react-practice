@@ -8,7 +8,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 import { useUserPreferences } from '@/providers/user-preferences-provider';
-import { useState } from 'react';
+import { Label } from '@/components/ui/label';
 
 interface selectOptions {
     value: string,
@@ -24,23 +24,26 @@ export default function CountrySelector() {
     const { updateCountry, selectedCountry } = useUserPreferences();
 
     return (
-        <Select
-            value={selectedCountry}
-            onValueChange={(country) => updateCountry(country)}
-        >
-            <SelectTrigger>
-                <SelectValue placeholder="Select a country" />
-            </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                    <SelectLabel>Countries</SelectLabel>
-                    {options.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                        </SelectItem>
-                    ))}
-                </SelectGroup>
-            </SelectContent>
-        </Select>
+        <div className="grid gap-2">
+            <Label htmlFor="country-selector">Country</Label>
+            <Select
+                value={selectedCountry}
+                onValueChange={(country) => updateCountry(country)}
+            >
+                <SelectTrigger id="country-selector" className="mt-1">
+                    <SelectValue placeholder="Select a country" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                        <SelectLabel>Countries</SelectLabel>
+                        {options.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                                {option.label}
+                            </SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
+        </div>
     );
 }
