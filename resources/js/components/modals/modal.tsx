@@ -1,25 +1,29 @@
+import { useEffect } from 'react';
+
 interface ModalProps {
     showModal: boolean;
     title: string;
-    onCloseClick: () => void;
+    onCloseHandler: () => void;
 }
 
 const Modal = function (props : ModalProps ) {
     const {
         showModal,
         title,
-        onCloseClick,
+        onCloseHandler,
     } = props
 
+
+
     return (
-        (showModal && <div className="modal overlay">
-            <div className="modal">
-                <span onClick={onCloseClick}>X</span>
-                <div className="modal content">
+        showModal ? ( <div className="modal-overlay" onClick={() => onCloseHandler()}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <span onClick={onCloseHandler}>X</span>
+                <div className="modal-content">
                     <h1>{title}</h1>
                 </div>
             </div>
-        </div>)
+        </div>) : null
     )
 }
 
