@@ -41,3 +41,10 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+interface InertiaSharedProps {
+    auth: {
+        user: User;
+    };
+    [key: string]: unknown;
+}

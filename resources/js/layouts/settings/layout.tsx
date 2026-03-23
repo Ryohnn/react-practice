@@ -9,6 +9,7 @@ import { edit as editPassword } from '@/routes/user-password';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { type PropsWithChildren } from 'react';
+import { edit as userPreferences } from '@/routes/user-preferences';
 
 const sidebarNavItems: NavItem[] = [
     {
@@ -24,6 +25,11 @@ const sidebarNavItems: NavItem[] = [
     {
         title: 'Two-Factor Auth',
         href: show(),
+        icon: null,
+    },
+    {
+        title: 'User Preferences',
+        href: userPreferences(),
         icon: null,
     },
     {
