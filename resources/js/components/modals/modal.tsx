@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 interface ModalProps {
     showModal: boolean;
     title: string;
