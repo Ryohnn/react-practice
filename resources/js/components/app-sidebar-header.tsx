@@ -1,6 +1,7 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
+import CountrySelector from '@/components/user-preferences/country-selector';
 
 export function AppSidebarHeader({
     breadcrumbs = [],
@@ -12,6 +13,12 @@ export function AppSidebarHeader({
             <div className="flex items-center gap-2">
                 <SidebarTrigger className="-ml-1" />
                 <Breadcrumbs breadcrumbs={breadcrumbs} />
+            </div>
+
+            <div className="flex ml-auto mr-1">
+                <div>
+                    <CountrySelector useLabel={false} />
+                </div>
             </div>
         </header>
     );

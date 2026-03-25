@@ -20,17 +20,21 @@ const options: selectOptions[] = [
     { value: 'ie', label: 'Ireland' },
 ];
 
-export default function CountrySelector() {
+interface CountrySelectorProps {
+    useLabel?: boolean,
+}
+
+export default function CountrySelector({ useLabel = true }: CountrySelectorProps) {
     const { updateCountry, selectedCountry } = useUserPreferences();
 
     return (
         <div className="grid gap-2">
-            <Label htmlFor="country-selector">Country</Label>
+            {useLabel && <Label htmlFor="country-selector">Country</Label>}
             <Select
                 value={selectedCountry}
                 onValueChange={(country) => updateCountry(country)}
             >
-                <SelectTrigger id="country-selector" className="mt-1">
+                <SelectTrigger id="country-selector">
                     <SelectValue placeholder="Select a country" />
                 </SelectTrigger>
                 <SelectContent>

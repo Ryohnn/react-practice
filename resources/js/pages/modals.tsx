@@ -23,19 +23,21 @@ export default function Modals() {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Modals" />
-            <div>
-                <button
-                    className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-                    onClick={onOpenTestModalClick}
-                >
-                    Open Test Modal
-                </button>
+            <div className="p-4">
+                <div>
+                    <button
+                        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+                        onClick={onOpenTestModalClick}
+                    >
+                        Open Test Modal
+                    </button>
+                </div>
+                <ModalWrapper
+                    title="test"
+                    showModal={showTestModal}
+                    setShowModal={setShowTestModal}
+                />
             </div>
-            <ModalWrapper
-                title="test"
-                showModal={showTestModal}
-                setShowModal={setShowTestModal}
-            />
         </AppLayout>
     );
 }
