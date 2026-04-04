@@ -11,7 +11,7 @@ git config --global --add safe.directory /app/public
 echo "Installing/updating Composer packages..."
 composer install
 
-echo "Installing/updating Node dependencies with Deno..."
-deno install --allow-scripts
+echo "Installing/updating Node dependencies with Bun..."
+bun install
 
 echo "✅ Dependencies installed successfully"
