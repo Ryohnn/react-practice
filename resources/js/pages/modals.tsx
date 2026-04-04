@@ -2,9 +2,9 @@ import AppLayout from '@/layouts/app-layout';
 import { BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 import { modals } from '@/routes';
-import ModalWrapper from '@/components/modals/modal-wrapper';
 import { useState } from 'react';
 import 'css/modals.scss';
+import EditUserModal from '@/components/modals/edit-user-modal';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -14,10 +14,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Modals() {
-    const [showTestModal, setShowTestModal] = useState(false);
+    const [showUserModal, setShowUserModal] = useState(false);
 
-    const onOpenTestModalClick = () => {
-        setShowTestModal(!showTestModal);
+    const openUserModal = () => {
+        setShowUserModal(true);
     }
 
     return (
@@ -27,16 +27,16 @@ export default function Modals() {
                 <div>
                     <button
                         className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-                        onClick={onOpenTestModalClick}
+                        onClick={openUserModal}
                     >
-                        Open Test Modal
+                        Open User Modal
                     </button>
+
+                    <EditUserModal
+                        showModal={showUserModal}
+                        setShowModal={setShowUserModal}
+                    />
                 </div>
-                <ModalWrapper
-                    title="test"
-                    showModal={showTestModal}
-                    setShowModal={setShowTestModal}
-                />
             </div>
         </AppLayout>
     );
