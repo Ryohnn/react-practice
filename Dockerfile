@@ -1,4 +1,4 @@
-FROM oven/bun:debian AS bun-source
+FROM denoland/deno:debian AS deno-source
 
 FROM dunglas/frankenphp AS base
 
@@ -18,8 +18,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY --from=bun-source /usr/local/bin/bun /usr/local/bin/bun
-COPY --from=bun-source /usr/local/bin/bunx /usr/local/bin/bunx
+COPY --from=deno-source /usr/local/bin/deno /usr/local/bin/deno
 COPY --chown=www-data . .
 
 RUN chmod -R 775 /app/public/storage/logs \

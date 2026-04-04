@@ -6,7 +6,7 @@
 - React
 - Vite
 - SASS
-- Bun JS with hot reloading for Vite
+- Deno with hot reloading for Vite
 - Dopple
 
 ### Setup
