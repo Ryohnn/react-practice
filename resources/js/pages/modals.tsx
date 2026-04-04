@@ -1,6 +1,6 @@
 import AppLayout from '@/layouts/app-layout';
-import { BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
+import { BreadcrumbItem, InertiaSharedProps } from '@/types';
+import { Head, usePage } from '@inertiajs/react';
 import { modals } from '@/routes';
 import { useState } from 'react';
 import 'css/modals.scss';
@@ -15,6 +15,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function Modals() {
     const [showUserModal, setShowUserModal] = useState(false);
+
+    const { auth } = usePage<InertiaSharedProps>().props;
 
     const openUserModal = () => {
         setShowUserModal(true);
@@ -33,6 +35,7 @@ export default function Modals() {
                     </button>
 
                     <EditUserModal
+                        data={auth.user}
                         showModal={showUserModal}
                         setShowModal={setShowUserModal}
                     />

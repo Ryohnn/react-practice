@@ -1,7 +1,7 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
-import CountrySelector from '@/components/user-preferences/country-selector';
+import LanguageSelector from '@/components/user-preferences/language-selector';
 
 export function AppSidebarHeader({
     breadcrumbs = [],
@@ -17,7 +17,7 @@ export function AppSidebarHeader({
 
             <div className="flex ml-auto mr-1">
                 <div>
-                    <CountrySelector useLabel={false} />
+                    <LanguageSelector useLabel={false} />
                 </div>
             </div>
         </header>

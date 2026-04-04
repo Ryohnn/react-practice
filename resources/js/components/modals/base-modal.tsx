@@ -1,17 +1,8 @@
-import { useCallback, useEffect } from 'react';
-
-export interface ModalProps {
-    showModal: boolean;
-    setShowModal: (arg0: boolean) => void;
-    title: string;
-}
-
-export type ModalPropsToPassIn = 'showModal' | 'setShowModal';
-
-export type BaseModalProps = Pick<ModalProps, ModalPropsToPassIn>;
+import React, { useCallback, useEffect } from 'react';
+import { ModalProps } from '@/types/modals';
 
 const BaseModal = function (props: ModalProps) {
-    const { showModal, setShowModal, title } = props;
+    const { showModal, setShowModal, title, children } = props;
 
     const onCloseHandler = useCallback(
         () => setShowModal(false),
@@ -34,18 +25,17 @@ const BaseModal = function (props: ModalProps) {
         };
     }, [onCloseHandler, showModal]);
 
-    return (
-        showModal ? (
-            <div className="modal-overlay" onClick={onCloseHandler}>
-                <div className="modal" onClick={(e) => e.stopPropagation()}>
-                    <span onClick={onCloseHandler}>X</span>
-                    <div className="modal-content">
-                        <h1>{title}</h1>
-                    </div>
+    return showModal ? (
+        <div className="modal-overlay" onClick={onCloseHandler}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                    <h1 className="modal-title">{title}</h1>
+                    <span className="" onClick={onCloseHandler}>X</span>
                 </div>
+                <div className="modal-content">{children}</div>
             </div>
-        ) : null
-    );
+        </div>
+    ) : null;
 }
 
 export default BaseModal;

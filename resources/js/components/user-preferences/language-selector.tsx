@@ -20,26 +20,26 @@ const options: selectOptions[] = [
     { value: 'ie', label: 'Ireland' },
 ];
 
-interface CountrySelectorProps {
+interface LanguageSelectorProps {
     useLabel?: boolean,
 }
 
-export default function CountrySelector({ useLabel = true }: CountrySelectorProps) {
-    const { updateCountry, selectedCountry } = useUserPreferences();
+export default function LanguageSelector({ useLabel = true }: LanguageSelectorProps) {
+    const { updateLanguage, selectedLanguage } = useUserPreferences();
 
     return (
         <div className="grid gap-2">
-            {useLabel && <Label htmlFor="country-selector">Country</Label>}
+            {useLabel && <Label htmlFor="language-selector">Language</Label>}
             <Select
-                value={selectedCountry}
-                onValueChange={(country) => updateCountry(country)}
+                value={selectedLanguage}
+                onValueChange={(language) => updateLanguage(language)}
             >
-                <SelectTrigger id="country-selector">
-                    <SelectValue placeholder="Select a country" />
+                <SelectTrigger id="language-selector">
+                    <SelectValue placeholder="Select a language" />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectLabel>Countries</SelectLabel>
+                        <SelectLabel>Languages</SelectLabel>
                         {options.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                                 {option.label}

@@ -6,7 +6,7 @@ import { type BreadcrumbItem } from '@/types';
 import AppLayout from '@/layouts/app-layout';
 import SettingsLayout from '@/layouts/settings/layout';
 import { edit as userPreferences } from '@/routes/user-preferences';
-import CountrySelector from '@/components/user-preferences/country-selector';
+import CountrySelector from '@/components/user-preferences/language-selector';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

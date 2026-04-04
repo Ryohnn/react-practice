@@ -5,26 +5,26 @@ import { usePage } from '@inertiajs/react';
 const UserPreferencesContext = createContext<UserPreferencesValue|undefined>(undefined);
 
 interface UserPreferencesValue {
-    updateCountry: (country: string) => void,
-    selectedCountry: string | undefined,
+    updateLanguage: (language: string) => void,
+    selectedLanguage: string | undefined,
 }
 
 export function UserPreferencesProvider({ children }: { children: ReactNode }) {
     const { auth } = usePage<InertiaSharedProps>().props;
     const user = auth.user;
 
-    const [selectedCountry, setSelectedCountry] = useState(
-        localStorage.getItem(user.name + '_country') ?? undefined,
+    const [selectedLanguage, setSelectedLanguage] = useState(
+        localStorage.getItem(user.name + '_language') ?? undefined,
     );
 
-    const updateCountry = (country: string) => {
-        localStorage.setItem(user.name + '_country', country);
-        setSelectedCountry(country)
+    const updateLanguage = (language: string) => {
+        localStorage.setItem(user.name + '_language', language);
+        setSelectedLanguage(language);
     }
 
     const value = {
-        updateCountry: updateCountry,
-        selectedCountry: selectedCountry,
+        updateLanguage: updateLanguage,
+        selectedLanguage: selectedLanguage,
     };
 
     return (
