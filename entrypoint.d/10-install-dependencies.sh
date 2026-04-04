@@ -12,6 +12,6 @@ echo "Installing/updating Composer packages..."
 composer install
 
 echo "Installing/updating Node dependencies with Deno..."
-deno install
+deno install --allow-scripts
 
 echo "✅ Dependencies installed successfully"

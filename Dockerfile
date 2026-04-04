@@ -18,7 +18,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY --from=deno-source /usr/local/bin/deno /usr/local/bin/deno
+COPY --from=deno-source /usr/bin/deno /usr/local/bin/deno
 COPY --chown=www-data . .
 
 RUN chmod -R 775 /app/public/storage/logs \
