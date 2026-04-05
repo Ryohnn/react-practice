@@ -10,7 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { dashboard, modals, naughtsandcrosses, users } from '@/routes';
+import { dashboard, dragandrop, modals, naughtsandcrosses, users } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
@@ -36,7 +36,12 @@ const mainNavItems: NavItem[] = [
         title: 'Modals',
         href: modals(),
         icon: LayoutGrid,
-    }
+    },
+    {
+        title: 'Drag and Drop',
+        href: dragandrop(),
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

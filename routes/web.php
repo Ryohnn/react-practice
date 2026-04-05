@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DragAndDropController;
 use App\Http\Controllers\ModalController;
 use App\Http\Controllers\NaughtsAndCrossesController;
 use App\Http\Controllers\UserController;
@@ -30,5 +31,8 @@ Route::get('naughtsandcrosses', [NaughtsAndCrossesController::class, 'index'])
 
 Route::get('modals', [ModalController::class, 'index'])
     ->name('modals');
+
+Route::get('drag-and-drop', [DragAndDropController::class, 'index'])
+    ->name('dragandrop');
 
 require __DIR__.'/settings.php';
