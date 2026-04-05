@@ -2,9 +2,15 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { BaseFormProps } from '@/types/forms';
 import { User } from '@/types';
-import { Form } from '@inertiajs/react';
+import { Form, useFormContext } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import UserController from '@/actions/App/Http/Controllers/UserController';
+
+function SuccessMsg() {
+    const form = useFormContext();
+    if (!form?.recentlySuccessful) return null;
+    return <div>Changes saved!</div>;
+}
 
 export default function EditUserModalForm(props: BaseFormProps<User>) {
     const { data, onSuccess } = props;
@@ -18,6 +24,8 @@ export default function EditUserModalForm(props: BaseFormProps<User>) {
             }}
             className="space-y-6"
         >
+            <SuccessMsg />
+
             <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
                 <Input

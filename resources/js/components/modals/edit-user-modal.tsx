@@ -18,7 +18,6 @@ const EditUserModal = ({ data, showModal, setShowModal }: EditUserModalProps<Use
         >
             <EditUserModalForm
                 data={data}
-                onSuccess={() => setShowModal(false)}
             />
         </BaseModal>
 
