@@ -22,6 +22,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('users', [UserController::class, 'users'])
     ->name('users');
 
+Route::patch('user/update', [UserController::class, 'updateUser'])
+    ->name('user.update');
+
 Route::get('naughtsandcrosses', [NaughtsAndCrossesController::class, 'index'])
     ->name('naughtsandcrosses');
 

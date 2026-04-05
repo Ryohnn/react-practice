@@ -32,6 +32,7 @@ const BaseModal = function (props: ModalProps) {
                     <h1 className="modal-title">{title}</h1>
                     <span className="" onClick={onCloseHandler}>X</span>
                 </div>
+                <hr className="my-3" />
                 <div className="modal-content">{children}</div>
             </div>
         </div>
